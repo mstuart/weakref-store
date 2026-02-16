@@ -1,17 +1,17 @@
-# weak-cache
+# weakref-store
 
 > A WeakRef-based cache that automatically evicts entries when values are garbage collected
 
 ## Install
 
 ```sh
-npm install weak-cache
+npm install weakref-store
 ```
 
 ## Usage
 
 ```js
-import WeakCache from 'weak-cache';
+import WeakCache from 'weakref-store';
 
 const cache = new WeakCache({
 	onEvict(key) {

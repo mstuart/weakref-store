@@ -1,9 +1,9 @@
 {
-  "name": "gc-cache",
+  "name": "weakref-store",
   "version": "1.0.0",
   "description": "A WeakRef-based cache that automatically evicts entries when values are garbage collected",
   "license": "MIT",
-  "repository": "mstuart/gc-cache",
+  "repository": "mstuart/weakref-store",
   "author": {
     "name": "Mark Stuart",
     "email": "mstuart@users.noreply.github.com",

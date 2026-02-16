@@ -12,7 +12,7 @@ A WeakRef-based cache that automatically evicts entries when values are garbage 
 
 @example
 ```
-import WeakCache from 'weak-cache';
+import WeakCache from 'weakref-store';
 
 const cache = new WeakCache();
 
