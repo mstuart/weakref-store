@@ -1,46 +1,46 @@
 {
-	"name": "@mstuart/iterable-ops",
-	"version": "1.0.0",
-	"description": "A WeakRef-based cache that automatically evicts entries when values are garbage collected",
-	"license": "MIT",
-	"repository": "mstuart/weak-cache",
-	"author": {
-		"name": "Mark Stuart",
-		"email": "mstuart@users.noreply.github.com",
-		"url": "https://github.com/mstuart"
-	},
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./index.d.ts",
-			"default": "./index.js"
-		}
-	},
-	"sideEffects": false,
-	"engines": {
-		"node": ">=20"
-	},
-	"scripts": {
-		"test": "xo && ava && tsd"
-	},
-	"files": [
-		"index.js",
-		"index.d.ts"
-	],
-	"keywords": [
-		"cache",
-		"weak",
-		"weakref",
-		"gc",
-		"garbage",
-		"collection",
-		"finalization",
-		"registry",
-		"evict"
-	],
-	"devDependencies": {
-		"ava": "^6",
-		"tsd": "^0.31",
-		"xo": "^0.60"
-	}
+  "name": "weak-cache",
+  "version": "1.0.0",
+  "description": "A WeakRef-based cache that automatically evicts entries when values are garbage collected",
+  "license": "MIT",
+  "repository": "mstuart/weak-cache",
+  "author": {
+    "name": "Mark Stuart",
+    "email": "mstuart@users.noreply.github.com",
+    "url": "https://github.com/mstuart"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "xo && ava && tsd"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "cache",
+    "weak",
+    "weakref",
+    "gc",
+    "garbage",
+    "collection",
+    "finalization",
+    "registry",
+    "evict"
+  ],
+  "devDependencies": {
+    "ava": "^6",
+    "tsd": "^0.31",
+    "xo": "^0.60"
+  }
 }
