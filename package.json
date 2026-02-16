@@ -1,5 +1,5 @@
 {
-  "name": "weak-cache",
+  "name": "weakref-cache",
   "version": "1.0.0",
   "description": "A WeakRef-based cache that automatically evicts entries when values are garbage collected",
   "license": "MIT",
