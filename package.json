@@ -1,6 +1,6 @@
 {
-	"name": "weak-cache",
-	"version": "0.0.0-development",
+	"name": "@mstuart/iterable-ops",
+	"version": "1.0.0",
 	"description": "A WeakRef-based cache that automatically evicts entries when values are garbage collected",
 	"license": "MIT",
 	"repository": "mstuart/weak-cache",
