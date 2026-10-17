@@ -28,7 +28,7 @@ console.log(cache.has('key'));
 */
 export default class WeakCache<
   K = string,
-  V extends Record<string, unknown> = Record<string, unknown>,
+  V extends object = Record<string, unknown>,
 > {
   /**
 	The approximate size of the cache. May include entries with collected values.

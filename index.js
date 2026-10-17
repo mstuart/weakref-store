@@ -14,7 +14,10 @@ export default class WeakCache {
 	*/
   constructor(options = {}) {
     this.#onEvict = options.onEvict;
-    this.#registry = new FinalizationRegistry((key) => {
+    this.#registry = new FinalizationRegistry(({ key, reference }) => {
+      if (this.#map.get(key) !== reference) {
+        return;
+      }
       this.#map.delete(key);
       if (this.#onEvict) {
         this.#onEvict(key);
@@ -62,14 +65,12 @@ export default class WeakCache {
 
     const existing = this.#map.get(key);
     if (existing !== undefined) {
-      const oldValue = existing.deref();
-      if (oldValue !== undefined) {
-        this.#registry.unregister(oldValue);
-      }
+      this.#registry.unregister(existing);
     }
 
-    this.#map.set(key, new WeakRef(value));
-    this.#registry.register(value, key, value);
+    const reference = new WeakRef(value);
+    this.#map.set(key, reference);
+    this.#registry.register(value, { key, reference }, reference);
   }
 
   /**
@@ -101,10 +102,7 @@ export default class WeakCache {
   delete(key) {
     const reference = this.#map.get(key);
     if (reference !== undefined) {
-      const value = reference.deref();
-      if (value !== undefined) {
-        this.#registry.unregister(value);
-      }
+      this.#registry.unregister(reference);
     }
 
     return this.#map.delete(key);
