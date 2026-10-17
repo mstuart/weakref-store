@@ -28,3 +28,14 @@ expectType<{ value: string } | undefined>(numberCache.get(1));
 // Errors for primitive values
 expectError(typedCache.set("key", "string"));
 expectError(typedCache.set("key", 42));
+
+const functions = new WeakCache<string, () => number>();
+functions.set("callback", () => 42);
+expectType<(() => number) | undefined>(functions.get("callback"));
+const arrays = new WeakCache<string, number[]>();
+arrays.set("items", [1, 2]);
+expectType<number[] | undefined>(arrays.get("items"));
+const dates = new WeakCache<string, Date>();
+dates.set("date", new Date());
+expectType<Date | undefined>(dates.get("date"));
+expectError(new WeakCache<string, string>());
