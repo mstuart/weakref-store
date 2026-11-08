@@ -79,3 +79,23 @@ test.serial(
     });
   }
 );
+
+for (const method of ["get", "has"]) {
+  test.serial(`${method} reports collected entries exactly once`, (t) => {
+    withRegistryFixture((getRegistry, references) => {
+      const evicted = [];
+      const cache = new WeakCache({ onEvict: (key) => evicted.push(key) });
+      cache.set("collected", {});
+      const registry = getRegistry();
+      const { held } = registry.registrations[0];
+      references[0].value = undefined;
+      cache[method]("collected");
+      t.deepEqual(evicted, []);
+      registry.callback(held);
+      t.is(cache.size, 0);
+      registry.callback(held);
+      cache[method]("collected");
+      t.deepEqual(evicted, ["collected"]);
+    });
+  });
+}

@@ -39,7 +39,6 @@ export default class WeakCache {
 
     const value = reference.deref();
     if (value === undefined) {
-      this.#map.delete(key);
       return;
     }
 
@@ -86,7 +85,6 @@ export default class WeakCache {
     }
 
     if (reference.deref() === undefined) {
-      this.#map.delete(key);
       return false;
     }
 
